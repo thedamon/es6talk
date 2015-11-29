@@ -396,7 +396,7 @@ function petTheseParts(...parts){
 
       <section>
         <h3 id="destructuring">Destructuring 💣</h3>
-        <p>Pull things out of an array (ES6), or object(ES7)</p>
+        <p>Pull things out of an array</p>
         <pre><code class="javascript">
 //response.kittens.thisKitten = {name: 'Smuggler'}
 let {name, hairColour, favouriteSpot = 'myChair'} 
@@ -418,7 +418,7 @@ theNameOfTheKittenIWillPet //Smuggler
 shooCat(favouriteSpot = 'keyboard');
 
 //or this ridiculousness:
-
+var { x: { y: { z: w } } } = o1;
         </code></pre>
       </section>
 
@@ -564,6 +564,7 @@ grunt.registerTask("default", ["babel"]);
       <ul>
         <li><a href="http://kangax.github.io/compat-table/es6/">Browser Compatability Table</a></li>
         <li><a href="https://ponyfoo.com/articles/es6">ES6 Overview in 350 Bullet Points</a></li>
+        <li><a href="https://github.com/getify/You-Dont-Know-JS/tree/master/es6%20%26%20beyond">You Don't Know JS: ES6 and Beyond eBook</a></li>
         <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla">Mozilla Developer Network Reference</a></li>
         <li><a href="http://www.ecma-international.org/ecma-262/6.0/">ECMAScript® 2015 Language Specification</a></li>
       </ul>
