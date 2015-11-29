@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Why ES6 is the best thing since bread.slice() && how to jump in and never look back</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <style type="text/css" media="screen">
+    .accesnt {
+      color: #fff;
+      opacity: 0.3;
+      transform: rotate(-45deg);
+      font-size: 45;
+      z-index: 0;
+      top: 40px;
+      position: absolute;
+    }
+  </style>
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+
+
+    <section>
+      <section>
+        <img class="stretch" src="img/es6-logo.png">
+        <h1>Why ES6 is the best thing since bread.slice()</h1>
+        <h3>&& how to jump in and never look back</h3>
+      </section>
+
+      <section style="text-align: left;">
+        <img class="stretch" src="img/damon-liminality.png">
+        <h2 id="me">Damon Muma, <br>BA HSSC URR MOGA TM</h2>
+        <h4>Senior Front-End Developer, User Experience Design &amp; Video, Digital Services, London Life</h4>
+        <h3>@thedamon</h3>
+      </section>
+      <section>
+        <img class="" src="img/es6-logo.png">
+        <p>E to the C to the M to the A to the...</p>
+        <aside class="notes">
+        Show of Hands: 
+        -who uses javascript in their job? 
+        knows about ES6? tried it? -at work, -at home on personal projects, at work on personal projects
+        -have you used it in production?
+        </aside>
+      </section>
+      <section>
+        <h2>Outline</h2>
+        <ol>
+          <li class="fragment">JavaScript: Not just for theatre & coffee lovers!</li>
+          <li class="fragment">What and why is ES6</li>
+          <li class="fragment">Features in ES6?</li>
+          <li class="fragment">How is to ES6?</li>
+          <li class="fragment">Promise: No Car Analogies</li>
+        </ol>
+      </section>
+      <section>
+        <img src="img/rocketlaunch.gif">
+      </section>
+    </section>
+    <section>
+      <section>
+        <h1 id="es6intro">So... Javascript.</h1>
+        <img class="" src="img/jsbooks.jpg">
+      </section>
+
+      <section>
+        <h2 id="es5ishakaoldjavascript">ES5...ish</h2>
+        <ul>
+          <li>Many confusing solutions for modularizing code</li>
+          <li>Many confusing solutions for doing classes/inheritence/prototypes</li>
+          <li>Does this work in my supported Browsers?</li>
+          <li>WEIRD syntax</li>
+          <li>Testing if things exist <code>if typeOf null blah blah</code></li>
+        </ul>
+              <pre><code class="javascript">
+//install
+[4] * [4] // 16
+[] * [] // 0
+[] * {} // NaN
+[4, 4] * [4, 4] // NaN
+({} * {}) // NaN
+  </code></pre>
+      </section>
+      <section>
+        <h2 id="es5ishakaoldjavascript">Fuck it, gimme 241.59 KB of jQuery</h2>
+        <ul>
+          <li>A lot of weird things about javascript, especially with IE8 involved.</li>
+          <li>Drop IE8, you can at least use ES5</li>
+          <li>But still...</li>
+        </ul>
+        <img class="fragment" src="img/catbutt.jpg">
+        <aside class="notes">
+          Still looking up many properties to see if it works in your supported browsers<br>
+          Still weird inconsistencies and eccentricities<br>
+          Bit of a the wild west out there.
+        </aside>
+      </section>
+      <section>
+        <img class="stretch" src="img/htmlcssjs.jpg">
+        <p>An S? Seriously?</p>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h3>ECMAscript 6 / ECMAscript 2015</h3>
+      </section>
+
+      <section data-background="img/kittenpile.jpg">
+        <aside class="notes">
+          Or as I like to call it: a pile of adorable kittens.
+        </aside>
+      </section>
+
+      <section>
+        <h3 id="evergreen">JS Goes Evergreen</h3>
+        <ul>
+          <li>"2015" ⬅️ 📜 to the Browsers</li>
+          <li>🌱 Living Standard</li>
+          <li>Stay current. Adapt to Trends, Best Practices</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 id="whosmakingit">Ecma</h2>
+        <blockquote>"Ecma International is an industry association founded in 1961, dedicated to the standardization of information and communication systems."</blockquote>
+        <ul>
+          <li>Not WHATWG etc</li>
+          <li>Unrelated to the <em>Browser API</em> (document.anyFunction(), fetch, etc)</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <h1 id="es6features">What's Inside ES6?</h1>
+    </section>
+
+    <section>
+      <h2 id="es6features">Promises</h2>
+      <ul>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&amp;nbsp;</li>
+      </ul>
+    </section>
+
+    <section>
+      <section>
+      <h2 id="modules">Modules</h2>
+      <ul>
+        <li>Like Require.js/Browserify, etc</li>
+        <li>Official implementation</li>
+        <li>Dependency Management</li>
+        <li>Separation of Concerns</li>
+        <li>🏢 > 🍝</li>
+      </ul>
+      <aside class="notes">
+      How many ppl use a module loader/bundler right now?
+      CommonJs? RequireJS? InvocationFUnctionAsyncPrototype Pattern?
+      IT's all a bit easier with modules. Modules are the official way of getting functionality from one file into another.
+      We should all be doing this.
+      </aside>
+      </section>
+      <section>
+        <h3>Export</h3>
+        <pre><code class="javascript">
+//tinyPiglet.js
+
+export const numEars = 2;
+export default rubTummy function(){
+  return "squeak!";
+}
+privateMethod = function(){
+  return "well I never!";
+}
+
+//or
+export {numEars, rubTummy}
+        </code></pre>
+      </section>
+      <section>
+        <h3>Import</h3>
+        <pre><code class="javascript">
+import {rubTummy, numberOfEarsOnAPiglet as numEars} from "tinyPiglet.js";
+rubTummy(); //"squeak!"
+console.log(numEars); //2
+
+import * as piglets from "tinyPiglet.js"; //everything
+piglets.rubTummy() //"squeak"!
+
+import "tinyPiglet.js"; //side-effects only
+
+import tinyPiglet from "tinyPiglet"; //default import
+        </code></pre>
+      </section>
+      
+      <section>
+        <h3>That's it!...?</h3>
+        <ul>
+          <li>No official module bundler (need jspm, webpack, browserify, etc)</li>
+          <li>Official syntax relies on separate files (HTTP2!!)</li>
+          <li>Use this: NOW</li>
+        </ul>
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <h3 id="classes">Classes!</h3>
+        <ul>
+          <li>Shut up, Java.</li>
+          <li>Prototypal Inheritance</li>
+          <li>Official Implementation</li>
+          <li>Classes > <code>_.sample(['Prototype','Module', 'Revealing Module', 'etc...'])</code></li>
+        </ul>
+        <aside class="notes">
+        <p>Remember how so many people complain that javascript isn't a real programming language because it doesn't have classes? Even if you don't use them, it will make you feel better knowing that they're there.</p>
+        <p>But it's really just prototypal inheritance</p>
+      </aside>
+      </section>
+      <section>
+        <pre><code class="javascript">
+import { cuteMeatAnimal } from 'cuteMeatAnimal';
+
+class tinyPiglet extends cuteMeatAnimal {
+  export const numEars = 2;
+
+  constructor(){
+    console.log('Stumble in and roll about on the floor.');
+  }
+
+  export default static rubTummy function(){ //Static: tinyPiglet.rubTummy
+    return "squeak!";
+  }
+  privateMethod = function(){ //instance: new TinyPiglet().privateMethod()
+    return "well I never!";
+  }
+}
+        </code></pre>
+      </section>
+      <section>
+        <h3>That's it!</h3>
+        <ul>
+          <li>Use 'em!</li>
+        </ul>
+      </section>
+    </section>
+
+    <section>
+      <section><h2 id="syntaxstuff">Syntax stuff!</h2></section>
+      <section>
+      <h3 id="letconst"><strikethrough>var</strikethrough>, let, and const</h3>
+        <ul>
+          <li>var is weird, get rid of it.</li>
+          <li>let does not wander into parent scope. Good kitty! 😸</li>
+          <li>const can never be reassigned (it <em>can</em> change!)</li>
+        </ul>
+        <pre><code class="javascript">
+var cat, toys = [], scritchesPerMinute;
+
+let myCatsMood = 'cheerful';
+const myCatsDisdainForMe = 'epic';
+myCatsDisdainFormMe = 'gone!!' // ERROR!
+        </code></pre>
+      </section>
+      <section>
+        <h3 id="defaultparameters">Default Function Parameters</h3>
+        <p>You maay have seen this before in another language...</p>
+        <pre><code class="javascript">
+function feedCat(
+  food = 'catfood', 
+  amount = function(){Math.random()},
+  foodBrand = food + 'Co'
+){
+  if (food === 'human') callPolice();
+}
+feedCat() //will have defaults!
+        </code></pre>
+        <aside class="notes">
+          In the spirit of javascript, these can be any value... like a function!
+        </aside>
+      </section>
+
+      <section>
+        <h3 id="arrows">Arrow =&gt; Functions</h3>
+        <ul>
+        <li>Retain <code>this</code> from parent (no <code>self</code> or <code>.bind()</code></li>
+          <li>implicit returns</li>
+          <li>Great for functional stuff like <code>.map()</code>, <code>.filter()</code>, <code>.reduce()</code>.</li>
+        </ul>
+        <pre><code class="javascript">
+//ES5ish
+function(number) {
+  return number % 2;
+}
+
+//ES6!!!
+number => number % 2
+
+(parameters) => {} // braces will *remove* implicit return
+        </code></pre>
+      </section>
+      <section>
+        <h3 id="templatestrings">Template Literals</h3>
+        <ul>
+          <li>LITERALLY THE BEST! 🎺</li>
+          <li>Removes much of the need for non-native templating engines</li>
+        </ul>
+        <pre><code class="javascript">
+//ES5ish
+var example = 'This' + fetchCompliment() + 'string can go \
+to another line and keep going'
+
+//ES6!!!
+let example = `This ${fetchCompliment()} string can go 
+to another line and keep going`;
+        </code></pre>
+      </section>
+
+    </section>
+
+    <section>
+      <h2 id="es6features">Promises</h2>
+      <ul>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li>&amp;nbsp;</li>
+      </ul>
+    </section>
+
+    <section>
+      <section>
+        <h2 id="objectstuff">Objects and Arrays!</h2>
+      </section>
+      <section>
+        <h3 id="spreadandrest">...spread and rest...</h3>
+        <p>Spread is like a cross section of an array.</p>
+        <pre><code class="javascript">
+let partsToPet = ['back', 'tummy', 'tail']
+petTheseParts(...partsToPet); 
+//petTheseParts('back', 'tummy,', 'tail')
+
+//Trick! quickly convert an object or collection to an array
+[...document.querySelectorAll('')].forEach{...}
+
+//or array building:
+let foo = [2, 3, 4];
+console.log(1, ...foo, 5) // '1 2 3 4 5'
+        </code></pre>
+        <p>Rest is not sleep 😟. PHP calls this the 'splat' operator💦.</p>
+        <pre><code class="javascript">
+//a flexible number of parameters
+function petTheseParts(...parts){
+  console.log(parts) //['back', 'tummy', 'tail'];
+}
+        </code></pre>
+        <aside class="notes">
+          Kind of like destructuring.
+        </aside>
+      </section>
+
+      <section>
+        <h3 id="destructuring">Destructuring 💣</h3>
+        <p>Pull things out of an array (ES6), or object(ES7)</p>
+        <pre><code class="javascript">
+//response.kittens.thisKitten = {name: 'Smuggler'}
+let {name, hairColour, favouriteSpot = 'myChair'} 
+  = response.kittens.thisKitten;
+name //"Smuggler" vs console.log(response.kittens.thisKitten.name)
+hairColour //undefined
+favouriteSpot //myChair
+        </code></pre>
+      </section>
+      <section>
+        <h3 id="destructuring">Destructuring 💣</h3>
+        <p>You can rename what you extract but it's backwards 🔄</p>
+        <pre><code class="javascript">
+let {name: nameOfTheKittenIWillPet} = response.kittens.thisKitten;
+name //undefined
+theNameOfTheKittenIWillPet //Smuggler
+
+//function parameter defaults when you're CALLING them?
+shooCat(favouriteSpot = 'keyboard');
+
+//or this ridiculousness:
+
+        </code></pre>
+      </section>
+
+      <section>
+        <h3 id="objectassign">Object.assign() 😃</h3>
+        <p>This one is pretty straightforward, but awesome!</p>
+
+        <pre><code class="javascript">
+function updateKitten(newKitten){
+  Object.assign({}, defaultKitten, currentKitten, newKitten);
+}
+let currentKitten = {favouriteToy: 'packing peanuts'}
+inspectKitten(currentKitten);
+
+updateKitten(currentKitten, {favoriteToy: 'my soft, mushy fingers'});
+        </code></pre>
+      </section>
+
+      <section>
+        <h3 id="dynamickeys">Computed Property Names (CPN?) 🗝</h3>
+        <pre><code class="javascript">
+{
+  [surprisePropertyName()]: 'uuuuhh... 7?',
+  ['theHolySwordOf' + myName]: swordStats
+}
+        </code></pre>
+        <h3 id="dynamickeys">Property Value Shorthands (PVS?) 🍰</h3>
+        <pre><code class="javascript">
+Object.is({ name }, {name: name}); //true
+        </code></pre>
+        <aside class="notes">
+        CPN: Make sure these are predictible.
+        </aside>
+      </section>
+    </section>
+
+    <section>
+      <h2 id="neckbeardstuff">But Wait There's More!</h2>
+      <ul>
+        <li>promises</li>
+        <li>generators</li>
+        <li>maps</li>
+        <li>weak maps</li>
+        <li>sets</li>
+        <li>symbols</li>
+        <li>proxies</li>
+        <li>iterators</li>
+        <li>reflection</li>
+      </ul>
+    </section>
+    
+    <section>
+      <h2 id="es2016">ES2016</h2>
+      <ul>
+        <li>Decorators </li>
+        <li>::bind operator </li>
+        <li>Array.includes()</li>
+        <li>Rest and Spread for object properties</li>
+      </ul>
+    </section>
+
+    <section>
+      <section>
+        <h1 id="usinges6nowandfuture">Using ES6</h1>
+        <ul>
+          <li>Browser Support <a href="https://kangax.github.io/compat-table/es6/">🔗</a></li>
+          <li>Transpiling</li>
+          <li>Transpiling</li>
+          <li>Transpiling</li>
+        </ul>
+      </section>
+      <section>
+        <img class="stretch" src="img/babel.png">
+      </section>
+      <section>
+        <h2>Babel</h2>
+        <ul>
+          <li>ES6+ polyfills via transpiling</li>
+          <li>Integrates with any build system</li>
+          <li>Configurable</li>
+          <li>Just launched a BNV 6 (Big New Version)</li>
+          <li>de facto Standard (⚰ Traceur)</li>
+        </ul>
+        <pre><code class="javascript">
+//install
+$ npm install --save-dev babel-loader babel-core
+        </code></pre>
+      </section>
+      <section>
+        <h3>Webpack</h3>
+        <pre><code class="javascript">
+//project config:
+module: {
+  loaders: [
+    { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"}
+  ]
+}
+
+//or per file:
+var Person = require("babel!./Person.js").default;
+        </code></pre>
+      </section>
+      <section>
+        <h3>Grunt</h3>
+        <pre><code class="javascript">
+$ npm install --save-dev grunt-babel
+        </code></pre>
+        <pre><code class="javascript">
+grunt.initConfig({
+  "babel": {
+    options: {
+      sourceMap: true
+    },
+    dist: {
+      files: {
+        "dist/app.js": "src/app.js"
+      }
+    }
+  }
+});
+
+grunt.registerTask("default", ["babel"]);
+        </code></pre>
+      </section>
+      <section>
+        <p>And everything in between</p><br><br>
+        <p>And yes, this does all assume you're using NPM for package management.</p>
+      </section>
+    </section>
+    <section>
+      <h2 id="benefits">So Why ES6?</h2>
+      <ul>
+        <li>easier to write</li>
+        <li>easier to read*</li>
+        <li>easier to not use jQuery</li>
+        <li>native ∴ smaller (eventually)</li>
+        <li>standardizing practices</li>
+        <li>getting used to change</li>
+      </ul>
+    </section>
+    <section>
+      <h2 id="resources">Resources</h2>
+      <ul>
+        <li><a href="http://kangax.github.io/compat-table/es6/">Browser Compatability Table</a></li>
+        <li><a href="https://ponyfoo.com/articles/es6">ES6 Overview in 350 Bullet Points</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla">Mozilla Developer Network Reference</a></li>
+        <li><a href="http://www.ecma-international.org/ecma-262/6.0/">ECMAScript® 2015 Language Specification</a></li>
+      </ul>
+    </section>
+    <section>
+      <section data-background="#FFFFFF">
+        <img class="stretch" style="box-shadow: none" src="img/uxdv.jpg">
+      </section>
+      <section>
+        <img class="stretch" style="box-shadow: none" src="img/olp.jpg">
+      </section>
+      <section data-background="#FFFFFF">
+        <img class="stretch" style="box-shadow: none" src="img/fed.jpg">
+      </section>
+      <section>
+        <h2 id="thankyou">Thank You!</h2>
+      </section>
+    </section>
+
+
+  </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+  // Full list of configuration options available at:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+    // Optional reveal.js plugins
+    dependencies: [
+      {
+        src: 'lib/js/classList.js', condition: function () {
+        return !document.body.classList;
+      }
+      },
+      {
+        src: 'plugin/markdown/marked.js', condition: function () {
+        return !!document.querySelector('[data-markdown]');
+      }
+      },
+      {
+        src: 'plugin/markdown/markdown.js', condition: function () {
+        return !!document.querySelector('[data-markdown]');
+      }
+      },
+      {
+        src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+        hljs.initHighlightingOnLoad();
+      }
+      },
+      {src: 'plugin/zoom-js/zoom.js', async: true},
+      {src: 'plugin/notes/notes.js', async: true}
+    ]
+  });
+
+</script>
+
+</body>
+</html>
